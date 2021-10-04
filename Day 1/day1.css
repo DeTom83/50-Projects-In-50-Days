@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Mono:wght@100&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  width: 90vw;
+}
+
+.panel {
+  /* background-size: auto 100%; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: blanchedalmond;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: "Roboto Mono", monospace; */
+  font-size: 1.5rem;
+  position: absolute;
+  color: tomato;
+  top: 1rem;
+  left: 1.5rem;
+  margin: 0;
+  opacity: 1;
+  justify-content: center;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
+
+.panel .content {
+  opacity: 0;
+}
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  color: white;
+  writing-mode: horizontal-tb;
+  position: absolute;
+  top: 1.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+.panel.active .content {
+  color: white;
+  position: absolute;
+  right: 20px;
+  margin: 20px;
+  bottom: 40px;
+  opacity: 1;
+  transition: opacity 0.2s ease-in 0.4s;
+}
+
+.panel.active:focus,
+.panel.active:hover {
+  /* transform: scale(1.01); */
+
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
